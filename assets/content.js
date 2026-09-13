@@ -84,19 +84,19 @@ window.SITE = {
       index: '01', kind: 'product', meta: 'PRODUCT · 01 · AI AGENT', title: '方案策划 Agent 平台',
       copy: '面向需求评审与方案复用，串联约束补全、知识检索、方案草案与引用核查；经人工确认的方案可沉淀为知识，供后续相似需求复用。',
       status: '本地 MVP · RAG / Workflow · 人工确认与反馈沉淀',
-      cover: 'assets/img/cover-01.png'
+      cover: 'assets/img/cover-01.svg'
     },
     {
       index: '02', kind: 'product', meta: 'PRODUCT · 02 · AI 社交', title: 'AI 漂流瓶社交 App',
       copy: '围绕心情分享、随机捞瓶与一对一聊天，用 AI 种子内容缓解空池问题；结合角色设定、生活状态、关系记忆与近期对话，生成有上下文的回复。',
       status: '个人项目 · 种子内容与有状态数字人已实现',
-      cover: 'assets/img/cover-02.png'
+      cover: 'assets/img/cover-02.svg'
     },
     {
       index: '03', kind: 'product', meta: 'PRODUCT · 03 · AI 决策', title: '周末出行盲盒 App',
       copy: '从人数、预算、心情和出行范围出发，通过盲盒与 AI 推荐降低选择成本，串联玩法详情、行程生成、本周约定与完成打卡；AI 不可用时保留规则兜底。',
       status: '多端 MVP · 多路召回与排序 · 推荐到打卡闭环',
-      cover: 'assets/img/cover-03.png'
+      cover: 'assets/img/cover-03.svg'
     },
 
     /* ---------------- STACK ---------------- */
