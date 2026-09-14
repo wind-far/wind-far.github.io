@@ -78,7 +78,7 @@ for (const id of navs) {
   await wait(80);
   assert($(`.os-sidebar [data-nav="${id}"]`).classList.contains('is-active'), `切到 ${id} 后侧栏高亮`);
   assert($('#stage').children.length === 1, `${id} 视图已渲染`);
-  if (id === 'product') assert($('#stage').querySelectorAll('.work-product-card').length === 3, '产品卡片 3 张');
+  if (id === 'product') assert($('#stage').querySelectorAll('.work-product-card').length === 4, '产品卡片 4 张');
   if (id === 'stack') assert($('#stage').querySelectorAll('.work-tool-card').length === 8, '能力栈卡片 8 张');
   if (id === 'contact') assert($('#stage').querySelectorAll('.contact-channels a').length === 3, '联系方式 3 条');
 }

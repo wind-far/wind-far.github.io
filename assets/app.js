@@ -16,6 +16,9 @@
   function icon(name, size, weight) {
     var set = ICONS[name];
     if (!set) return '';
+    if (set.svg) return '<svg class="ui-symbol" xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
+      '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (weight === 'duotone' ? '1.85' : '1.65') +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + set.svg + '</svg>';
     var w = set[weight] || set.regular || set[Object.keys(set)[0]] || [];
     return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
       '" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true" focusable="false">' +
@@ -108,20 +111,20 @@
   function linkHtml(url, label, cls) {
     if (!url) return '';
     var ext = /^https?:/i.test(url);
-    return '<a href="' + url + '"' + (ext ? ' target="_blank" rel="noreferrer"' : '') + '>' +
-      esc(label) + ' ' + icon(ext ? 'ArrowUpRight' : 'ArrowRight', 17, 'bold') + '</a>';
+    return '<a href="' + esc(url) + '"' + (ext ? ' target="_blank" rel="noreferrer"' : '') + '>' +
+      esc(label) + ' ' + icon(ext ? 'ArrowUpRightSquare' : 'ArrowRight', 15, 'regular') + '</a>';
   }
 
   function workCard(w) {
     if (w.kind === 'product') {
-      var cover = w.detailUrl
-        ? '<a class="work-product-cover-link" href="' + w.detailUrl + '" aria-label="查看' + esc(w.title) + '产品介绍"><img src="' + w.cover + '" alt="' + esc(w.title) + ' 封面"></a>'
-        : '<img src="' + w.cover + '" alt="' + esc(w.title) + ' 封面">';
+      var cover = '<div class="work-product-cover"><img src="' + esc(w.cover) + '" alt="' + esc(w.title) + '界面预览"></div>';
       return '<article class="work-showcase-card work-product-card">' + cover +
         '<div class="work-card-copy"><small>' + esc(w.meta) + '</small><h2>' + esc(w.title) + '</h2>' +
-        '<p>' + sentences(w.copy) + '</p>' +
-        (w.status ? '<span class="work-access-note">' + esc(w.status) + '</span>' : '') +
-        linkHtml(w.url, w.action || '查看产品', '') +
+        '<p>' + esc(w.copy) + '</p>' +
+        '<span class="work-access-note">' + esc(w.status) + '</span>' +
+        '<div class="project-actions">' + linkHtml(w.githubUrl, w.githubLabel || 'GitHub', '') +
+        '<button type="button" data-preview="' + esc(w.id) + '">演示效果 ' + icon('PhotoStack', 16, 'regular') + '</button>' +
+        '</div>' +
         '</div></article>';
     }
     // work / stack / 其它无封面卡片
@@ -134,6 +137,19 @@
       '</div></article>';
   }
 
+  function openProjectPreview(id) {
+    var project = S.works.find(function (w) { return w.id === id; });
+    var dialog = $('#projectPreview');
+    if (!project || !dialog) return;
+    dialog.innerHTML = '<div class="preview-heading"><div><small>PROJECT DEMO</small><h2 id="previewTitle">' + esc(project.title) + '</h2></div>' +
+      '<form method="dialog"><button class="preview-close" aria-label="关闭演示">' + icon('Xmark', 18, 'regular') + '</button></form></div>' +
+      '<p class="preview-note">' + esc(project.demoNote) + '</p>' +
+      '<div class="preview-gallery">' + project.previews.map(function (shot) {
+        return '<figure><img src="' + esc(shot.src) + '" alt="' + esc(shot.caption) + '"><figcaption>' + esc(shot.caption) + '</figcaption></figure>';
+      }).join('') + '</div><div class="project-actions">' + linkHtml(project.githubUrl, project.githubLabel || 'GitHub', '') + '</div>';
+    dialog.showModal();
+  }
+
   function carousel(list, cardHtml, extraClass) {
     return '<div class="workspace-view work-showcase ' + (extraClass || '') + '">' +
       '<div class="work-carousel-rail">' +
@@ -142,8 +158,8 @@
         return '<div class="work-carousel-slot" style="--work-offset:' + off + ';--work-distance:' + dist + '" data-slot="' + i + '" tabindex="-1">' + cardHtml(item) + '</div>';
       }).join('') +
       '</div>' +
-      '<button class="work-carousel-nav work-carousel-prev" type="button" aria-label="上一张卡片">‹</button>' +
-      '<button class="work-carousel-nav work-carousel-next" type="button" aria-label="下一张卡片">›</button>' +
+      '<button class="work-carousel-nav work-carousel-prev" type="button" aria-label="上一张卡片">' + icon('ChevronLeft', 19, 'regular') + '</button>' +
+      '<button class="work-carousel-nav work-carousel-next" type="button" aria-label="下一张卡片">' + icon('ChevronRight', 19, 'regular') + '</button>' +
       '<p class="work-carousel-hint"><span>01</span> / ' + pad2(list.length) + ' · ← →</p>' +
       '</div>';
   }
@@ -256,6 +272,10 @@
     // 悬挂照片拖拽
     var rig = $('.portrait-rig', stage);
     if (rig) bindPortrait(rig);
+
+    Array.prototype.forEach.call(stage.querySelectorAll('[data-preview]'), function (button) {
+      button.addEventListener('click', function () { openProjectPreview(button.getAttribute('data-preview')); });
+    });
 
     // 3D 卡片轮播
     var rail = $('.work-carousel-rail', stage);
@@ -385,7 +405,7 @@
     function setDrag(x) { rail.style.setProperty('--work-drag-x', x + 'px'); }
 
     rail.addEventListener('pointerdown', function (e) {
-      if (e.button !== 0) return;
+      if (e.button !== 0 || e.target.closest('a, button')) return;
       st.pointerId = e.pointerId; st.startX = e.clientX; st.dx = 0; st.moved = false;
     });
     rail.addEventListener('pointermove', function (e) {
@@ -439,6 +459,7 @@
     });
 
     function onKey(e) {
+      if ($('#projectPreview[open]') || e.target.closest('a, button')) return;
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
       else if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
     }
