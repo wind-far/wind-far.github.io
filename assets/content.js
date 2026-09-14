@@ -35,7 +35,7 @@ window.SITE = {
     { kind: 'ok',    text: '挂载 /knowledge （RAG 知识库）' },
     { kind: 'ok',    text: '挂载 /agents （工具调用与任务编排）' },
     { kind: 'ok',    text: '同步能力：需求定义 → 原型实现 → 评测验收 → 反馈迭代' },
-    { kind: 'ok',    text: '载入项目：方案复用 · AI 轻社交 · 出行决策' },
+    { kind: 'ok',    text: '载入项目：树洞有只猫 · kina · ludraft · AI 旅游盲盒' },
     { kind: 'ok',    text: '载入技术底色：前端工程 · AI 辅助全栈开发' },
     { kind: 'ok',    text: '启动产品工作台 portfolio.app' },
     { kind: 'login', text: 'login: lvhao' }
@@ -61,7 +61,7 @@ window.SITE = {
   decisionLanes: [
     {
       input: '业务拆解', output: '场景定义',
-      detail: '从方案复用、社交冷启动和出行决策中的具体问题出发，明确目标用户、使用流程与 AI 介入的位置。',
+      detail: '从社交互动、内容创作、游戏生成和出行决策中的具体问题出发，明确目标用户、使用流程与 AI 介入的位置。',
       inputIcon: 'FolderOpen', outputIcon: 'Target', tone: 'blue'
     },
     {
@@ -77,26 +77,52 @@ window.SITE = {
   ],
 
   // 卡片轮播数据。kind: product（带封面）/ stack（能力栈）
-  // logo / 产品代号 / 雇主名称一律不得写入，项目以通用命名呈现。
+  // 按用户指定展示个人项目名称与仓库；不公开雇主和履历信息。
   works: [
     /* ---------------- PRODUCT ---------------- */
     {
-      index: '01', kind: 'product', meta: 'PRODUCT · 01 · AI AGENT', title: '方案策划 Agent 平台',
-      copy: '面向需求评审与方案复用，串联约束补全、知识检索、方案草案与引用核查；经人工确认的方案可沉淀为知识，供后续相似需求复用。',
-      status: '本地 MVP · RAG / Workflow · 人工确认与反馈沉淀',
-      cover: 'assets/img/cover-01.svg'
+      id: 'treecat', index: '01', kind: 'product', meta: 'PRODUCT · 01 · AI 社交', title: '树洞有只猫',
+      copy: '用漂流瓶分享心情、遇见陌生人。结合 AI 种子内容、角色生活状态与关系记忆，让冷启动阶段也有可回应的内容。',
+      status: '移动端产品 · 心情分享 / AI 互动 / 树猫日记',
+      cover: 'assets/img/treecat-1.jpg',
+      githubUrl: 'https://github.com/BaimaoStudio/bm_catintree', githubLabel: 'GitHub（私有）',
+      demoUrl: 'https://apps.apple.com/cn/app/id6762756366', demoLabel: 'App Store 体验',
+      demoNote: '以下为 App Store 公开展示图。GitHub 仓库为私有，访问源码需要授权。',
+      previews: [
+        { src: 'assets/img/treecat-1.jpg', caption: '心情交流 · App Store 展示图' },
+        { src: 'assets/img/treecat-2.jpg', caption: '树猫日记 · App Store 展示图' }
+      ]
     },
     {
-      index: '02', kind: 'product', meta: 'PRODUCT · 02 · AI 社交', title: 'AI 漂流瓶社交 App',
-      copy: '围绕心情分享、随机捞瓶与一对一聊天，用 AI 种子内容缓解空池问题；结合角色设定、生活状态、关系记忆与近期对话，生成有上下文的回复。',
-      status: '个人项目 · 种子内容与有状态数字人已实现',
-      cover: 'assets/img/cover-02.svg'
+      id: 'kina', index: '02', kind: 'product', meta: 'PRODUCT · 02 · AI 创作', title: 'kina',
+      copy: '将 Agent 对话、图片与视频生成、无限画布放进同一工作台。用节点连线组织创作流程，保留版本快照与失败重试，让创作方法可以复用。',
+      status: '创作平台原型 · 多模态生成 / 画布 / 工作流',
+      cover: 'assets/img/kina-preview.png',
+      githubUrl: 'https://github.com/wind-far/kina',
+      demoNote: '当前展示本地工作台截图，暂未提供公开在线演示；完整运行方式见 GitHub。',
+      previews: [{ src: 'assets/img/kina-preview.png', caption: '工作流画布 · 文本、图片与视频生成节点' }]
     },
     {
-      index: '03', kind: 'product', meta: 'PRODUCT · 03 · AI 决策', title: '周末出行盲盒 App',
-      copy: '从人数、预算、心情和出行范围出发，通过盲盒与 AI 推荐降低选择成本，串联玩法详情、行程生成、本周约定与完成打卡；AI 不可用时保留规则兜底。',
-      status: '多端 MVP · 多路召回与排序 · 推荐到打卡闭环',
-      cover: 'assets/img/cover-03.svg'
+      id: 'ludraft', index: '03', kind: 'product', meta: 'PRODUCT · 03 · AI 游戏', title: 'ludraft · 游芽',
+      copy: '把游戏想法变成可试玩的 2D 网页游戏。先确认玩法，再由八角色协作推进开发、隔离构建与浏览器测试，支持版本对比、回滚和源码导出。',
+      status: '本地 MVP · 八角色协作 / 试玩验证 / 版本管理',
+      cover: 'assets/img/ludraft-preview.png',
+      githubUrl: 'https://github.com/wind-far/ludraft',
+      demoNote: '当前展示本地工作台与手工示例，非真实模型生成质量证明。完整体验需本地启动，仓库提供示例导入说明。',
+      previews: [
+        { src: 'assets/img/ludraft-preview.png', caption: '项目画布 · 宝石花园示例与试玩入口' },
+        { src: 'assets/img/ludraft-home.png', caption: '创作首页 · 任务入口与最近项目' }
+      ]
+    },
+    {
+      id: 'travel', index: '04', kind: 'product', meta: 'PRODUCT · 04 · AI 旅游', title: 'AI 旅游盲盒 · 懒得动',
+      copy: '从人数、预算、心情与出行范围出发，用盲盒和 AI 推荐缩小选择，连接行程生成、本周约定与完成打卡，把“去哪玩”变成一次轻量决定。',
+      status: '多端 MVP · 偏好推荐 / 行程生成 / 约定打卡',
+      cover: 'assets/img/travel-preview.png',
+      githubUrl: 'https://github.com/wind-far/lazy2move',
+      demoUrl: 'https://travel.xiao6.xyz/', demoLabel: '在线体验',
+      demoNote: '公开站点首页已核验可访问。登录及 AI 生成依赖实际服务配置；此处截图展示产品界面。',
+      previews: [{ src: 'assets/img/travel-preview.png', caption: 'PC 首页 · 旅行盲盒与目的地发现' }]
     },
 
     /* ---------------- STACK ---------------- */
