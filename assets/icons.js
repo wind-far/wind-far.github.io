@@ -37,6 +37,9 @@ window.ICONS = {
   "ArrowRight": {
     "svg": "<path d=\"M4 12h16m-6-6 6 6-6 6\"/>"
   },
+  "ArrowUpRightSquare": {
+    "svg": "<path d=\"M13 4h7v7M20 4l-9 9M9 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3\"/>"
+  },
   "ArrowUpRight": {
     "svg": "<path d=\"M6 18 18 6M6 6h12v12\"/>"
   },

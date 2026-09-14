@@ -112,7 +112,7 @@
     if (!url) return '';
     var ext = /^https?:/i.test(url);
     return '<a href="' + esc(url) + '"' + (ext ? ' target="_blank" rel="noreferrer"' : '') + '>' +
-      esc(label) + ' ' + icon(ext ? 'ArrowUpRight' : 'ArrowRight', 17, 'bold') + '</a>';
+      esc(label) + ' ' + icon(ext ? 'ArrowUpRightSquare' : 'ArrowRight', 15, 'regular') + '</a>';
   }
 
   function workCard(w) {

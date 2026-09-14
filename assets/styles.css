@@ -95,3 +95,8 @@
 .preview-close{display:grid;place-items:center;color:#667384;background:#e9edf1;border:0}
 .project-actions{gap:10px}
 .project-actions a,.project-actions button{gap:7px;border-radius:9px;border-color:#d8e0e9;background:linear-gradient(#fff,#f7f9fc);box-shadow:0 1px 2px #17223008}
+
+/* Keep chevrons legible even at the first/last card. */
+.work-carousel-nav .ui-symbol{width:19px;height:19px;stroke-width:1.9}
+.work-carousel-nav:disabled{opacity:1;color:#aab3bf;background:#f7f9fb;border-color:#e1e6ed;box-shadow:none;cursor:default}
+.project-actions a .ui-symbol{width:15px;height:15px;stroke-width:1.65}
