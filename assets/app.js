@@ -183,7 +183,7 @@
         return '<a href="' + c.href + '"' + (c.external ? ' target="_blank" rel="noreferrer"' : '') + '>' +
           '<span class="channel-icon">' + icon(c.icon, 21, 'duotone') + '</span>' +
           '<span><small>' + esc(c.label) + '</small><strong>' + esc(c.value) + '</strong></span>' +
-          icon(c.external ? 'ArrowUpRight' : 'ArrowRight', 16, 'bold') + '</a>';
+          icon(c.external ? 'ArrowUpRightSquare' : 'ArrowRight', 16, 'regular') + '</a>';
       }).join('') +
       '</div></div></div>';
   }
