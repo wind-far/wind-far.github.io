@@ -85,9 +85,7 @@ window.SITE = {
       copy: '用漂流瓶分享心情、遇见陌生人。结合 AI 种子内容、角色生活状态与关系记忆，让冷启动阶段也有可回应的内容。',
       status: '移动端产品 · 心情分享 / AI 互动 / 树猫日记',
       cover: 'assets/img/treecat-1.jpg',
-      githubUrl: 'https://github.com/BaimaoStudio/bm_catintree', githubLabel: 'GitHub（私有）',
-      demoUrl: 'https://apps.apple.com/cn/app/id6762756366', demoLabel: 'App Store 体验',
-      demoNote: '以下为 App Store 公开展示图。GitHub 仓库为私有，访问源码需要授权。',
+      demoNote: 'App Store 公开展示图：心情交流与树猫日记。',
       previews: [
         { src: 'assets/img/treecat-1.jpg', caption: '心情交流 · App Store 展示图' },
         { src: 'assets/img/treecat-2.jpg', caption: '树猫日记 · App Store 展示图' }
@@ -120,8 +118,7 @@ window.SITE = {
       status: '多端 MVP · 偏好推荐 / 行程生成 / 约定打卡',
       cover: 'assets/img/travel-preview.png',
       githubUrl: 'https://github.com/wind-far/lazy2move',
-      demoUrl: 'https://travel.xiao6.xyz/', demoLabel: '在线体验',
-      demoNote: '公开站点首页已核验可访问。登录及 AI 生成依赖实际服务配置；此处截图展示产品界面。',
+      demoNote: 'PC 端界面预览，展示旅行盲盒与目的地发现。',
       previews: [{ src: 'assets/img/travel-preview.png', caption: 'PC 首页 · 旅行盲盒与目的地发现' }]
     },
 

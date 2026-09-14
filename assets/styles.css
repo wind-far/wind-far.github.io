@@ -15,8 +15,8 @@
 .work-card-copy>p{margin-top:16px;color:var(--muted);font-size:12px;line-height:1.68}
 .work-card-copy>a{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:auto;color:var(--blue);font-size:12px;font-weight:650;text-decoration:none}
 .work-card-copy>a:hover{text-decoration:underline;text-underline-offset:4px}
-.work-product-card>img,.work-product-card>.work-product-cover-link{display:block;width:100%;height:44%;padding:14px 16px 0;background:#f4f5f2}
-.work-product-card>.work-product-cover-link>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.work-product-card>img,.work-product-card>.work-product-cover{display:block;width:100%;height:44%;padding:14px 16px 0;background:#f4f5f2}
+.work-product-card>.work-product-cover>img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
 .work-product-card .work-card-copy{padding:19px 25px 21px}
 .work-product-card .work-card-copy h2{margin-top:8px;font-size:clamp(24px,2.2vw,30px)}
 .work-product-card .work-card-copy>p{margin-top:9px;font-size:11px;line-height:1.55}
@@ -53,8 +53,7 @@
 .contact-status .contact-channels a{flex:1 1 0;min-height:0}
 
 /* Project screenshots, source links and accessible preview dialog. */
-.work-product-card>.work-product-cover-link{position:relative;flex:0 0 38%;height:38%;border:0;cursor:zoom-in;padding:12px;background:#eff4f5}
-.work-product-cover-link span{position:absolute;right:14px;bottom:12px;background:#ffffffed;color:#2e75e8;border-radius:5px;padding:5px 8px;font-size:10px}
+.work-product-card>.work-product-cover{flex:0 0 38%;height:38%;padding:12px;background:#eff4f5}
 .work-product-card .work-card-copy{gap:0;padding:16px 22px 18px}
 .work-product-card .work-card-copy h2{font-size:24px}
 .project-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;padding-top:14px}
@@ -88,3 +87,11 @@
   .project-preview{padding:16px}
   .preview-heading h2{font-size:21px}
 }
+
+/* Soft macOS-style icon surfaces with consistent rounded line weights. */
+.ui-symbol{display:inline-block;flex-shrink:0;vertical-align:middle}
+.nav-icon{border-radius:14px;background:linear-gradient(160deg,#ffffffed,#e9eef3c9);border:1px solid #ffffffcc;box-shadow:inset 0 1px 0 #fff,0 2px 5px #2635440c}
+.os-sidebar button.is-active .nav-icon{color:#007aff;background:linear-gradient(160deg,#f4f9ff,#deecff);border-color:#bfd8fc;box-shadow:inset 0 1px 0 #fff,0 3px 8px #007aff12}
+.preview-close{display:grid;place-items:center;color:#667384;background:#e9edf1;border:0}
+.project-actions{gap:10px}
+.project-actions a,.project-actions button{gap:7px;border-radius:9px;border-color:#d8e0e9;background:linear-gradient(#fff,#f7f9fc);box-shadow:0 1px 2px #17223008}

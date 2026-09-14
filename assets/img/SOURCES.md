@@ -6,6 +6,6 @@
 - `kina-preview.png`：[kina 工作流画布截图](https://github.com/wind-far/kina/blob/main/qa/compare/local_agent_center.png)。展示本地原型界面。
 - `ludraft-home.png`：[ludraft 首页截图](https://github.com/wind-far/ludraft/blob/main/docs/assets/ludraft-canvas-home.png)。
 - `ludraft-preview.png`：[ludraft 项目画布截图](https://github.com/wind-far/ludraft/blob/main/docs/assets/ludraft-canvas-project.png)。游戏内容为仓库手工示例，不作为真实模型生成质量证据。
-- `travel-preview.png`：[lazy2move PC 首页截图](https://github.com/wind-far/lazy2move/blob/main/docs/assets/pc-home-preview.png)。在线体验地址为 https://travel.xiao6.xyz/，本次核验首页可访问，不代表全部业务接口均已验收。
+- `travel-preview.png`：[lazy2move PC 首页截图](https://github.com/wind-far/lazy2move/blob/main/docs/assets/pc-home-preview.png)。仅用于界面效果展示。
 
-项目 GitHub 地址、在线入口、截图说明统一配置在 `assets/content.js`。树洞有只猫仓库为私有，页面注明访问需要授权；kina 和 ludraft 暂展示本地效果，没有配置未确认的公开服务地址。
+公开项目 GitHub 地址与截图说明统一配置在 `assets/content.js`。页面不展示私有仓库链接或在线体验跳转，演示效果通过卡片底部按钮打开。
