@@ -105,7 +105,7 @@ window.SITE = {
       copy: '把游戏想法变成可试玩的 2D 网页游戏。先确认玩法，再由八角色协作推进开发、隔离构建与浏览器测试，支持版本对比、回滚和源码导出。',
       status: '本地 MVP · 八角色协作 / 试玩验证 / 版本管理',
       cover: 'assets/img/ludraft-preview.png',
-      githubUrl: 'https://github.com/wind-far/ludraft',
+      githubUrl: 'https://github.com/wind-far/wind-game-dev',
       demoNote: '当前展示本地工作台与手工示例，非真实模型生成质量证明。完整体验需本地启动，仓库提供示例导入说明。',
       previews: [
         { src: 'assets/img/ludraft-preview.png', caption: '项目画布 · 宝石花园示例与试玩入口' },
